@@ -28,7 +28,7 @@
         </tr>
         @foreach ($barangs as $barang)
         <tr>
-            <td>{{ ++$i }}</td>
+            <td>{{ $loop->iteration }}</td>
             <td>{{ $barang->namabrg }}</td>
             <td>{{ $barang->jmlhbrg  }}</td>
             <td>{{ $barang->hrgbrg }}</td>

@@ -15,8 +15,8 @@ class BarangController extends Controller
     public function index()
     {
         $barangs = barang::latest()->paginate(5);
-      
-        return view('barangs.index',compact('barangs'))
+
+        return view('barangs.index', compact('barangs'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -43,11 +43,11 @@ class BarangController extends Controller
             'jmlhbrg' => 'required',
             'hrgbrg' => 'required',
         ]);
-      
+
         Barang::create($request->all());
-       
+
         return redirect()->route('barangs.index')
-                        ->with('success','Barang created successfully.');
+            ->with('success', 'Barang created successfully.');
     }
 
     /**
@@ -58,7 +58,7 @@ class BarangController extends Controller
      */
     public function show(Barang $barang)
     {
-        return view('barangs.show',compact('barang'));
+        return view('barangs.show', compact('barang'));
     }
 
     /**
@@ -69,7 +69,7 @@ class BarangController extends Controller
      */
     public function edit(Barang $barang)
     {
-        return view('barangs.edit',compact('barang'));
+        return view('barangs.edit', compact('barang'));
     }
 
     /**
@@ -86,11 +86,11 @@ class BarangController extends Controller
             'jmlhbrg' => 'required',
             'hrgbrg' => 'required',
         ]);
-      
+
         $barang->update($request->all());
-      
+
         return redirect()->route('barangs.index')
-                        ->with('success','Barang updated successfully');
+            ->with('success', 'Barang updated successfully');
     }
 
     /**
@@ -102,8 +102,8 @@ class BarangController extends Controller
     public function destroy(Barang $barang)
     {
         $barang->delete();
-       
+
         return redirect()->route('barangs.index')
-                        ->with('success','Barang deleted successfully');
+            ->with('success', 'Barang deleted successfully');
     }
 }
